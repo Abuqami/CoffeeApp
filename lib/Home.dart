@@ -20,6 +20,7 @@ class _HomeState extends State<Home> {
   bool expresso = false;
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: Container(
         height: 55,
         decoration: BoxDecoration(
@@ -163,13 +164,14 @@ class _HomeState extends State<Home> {
                     width: 303,
                     height: 50,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(22),
-                        color: Color(0xFFF8F7FA),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0xFFCBCBD4),
-                          ),
-                        ]),
+                      borderRadius: BorderRadius.circular(22),
+                      color: Color(0xFFF8F7FA),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFFCBCBD4),
+                        ),
+                      ],
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -178,20 +180,29 @@ class _HomeState extends State<Home> {
                             FaIcon(
                               FontAwesomeIcons.search,
                               color: Colors.black,
+                              size: 18,
                             ),
                             SizedBox(
                               width: 10,
                             ),
-                            Text(
-                              'Search Coffee...',
-                              style: TextStyle(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16),
+
+                            Container(
+                              width: 100,
+                              height: 35,
+                              child: TextField(
+                                style: TextStyle(fontSize: 18,fontFamily: 'Lato',),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                                  disabledBorder: InputBorder.none,
+                                  filled: false,
+                                  label: Text("Search Coffee...",style: TextStyle(fontSize: 18),),
+                                ),
+                              ),
                             ),
                           ],
                         ),
-                        Icon(Icons.settings),
+                        Icon(Icons.settings,size: 18,),
                       ],
                     ),
                   ),
@@ -225,12 +236,11 @@ class _HomeState extends State<Home> {
                             capp == false ? Color(0xFF846046) : Colors.white,
                         ontap: () {
                           setState(() {
-                            if(coldBrew == true || expresso == true){
-                              coldBrew=false;
+                            if (coldBrew == true || expresso == true) {
+                              coldBrew = false;
                               expresso = false;
-                              capp=true;
+                              capp = true;
                             }
-
                           });
                         },
                       ),
@@ -240,19 +250,21 @@ class _HomeState extends State<Home> {
                       Coffee_Category(
                         categoryImage: 'coldbrew.png',
                         CategoryName: 'ColdBrew',
-                        containerColor: coldBrew == true? Color(0xFF846046) : Colors.white,
-                        textColor: coldBrew == true? Colors.white:Color(0xFF846046),
-                        ImageColor: coldBrew == true? Colors.white:Color(0xFF846046),
+                        containerColor:
+                            coldBrew == true ? Color(0xFF846046) : Colors.white,
+                        textColor:
+                            coldBrew == true ? Colors.white : Color(0xFF846046),
+                        ImageColor:
+                            coldBrew == true ? Colors.white : Color(0xFF846046),
                         ontap: () {
                           setState(
                             () {
                               //capp == true? capp=false:coldBrew=true;
-                              if(capp == true || expresso==true){
-                                capp=false;
-                                expresso =false;
-                                coldBrew=true;
+                              if (capp == true || expresso == true) {
+                                capp = false;
+                                expresso = false;
+                                coldBrew = true;
                               }
-
                             },
                           );
                         },
@@ -263,16 +275,18 @@ class _HomeState extends State<Home> {
                       Coffee_Category(
                         categoryImage: 'Espresso.png',
                         CategoryName: 'Cappuccino',
-                        containerColor: expresso == true? Color(0xFF846046):Colors.white,
-                        textColor: expresso == true? Colors.white:Color(0xFF846046),
-                        ImageColor: expresso == true? Colors.white:Color(0xFF846046),
-                        ontap: (){
-                          setState((){
-                            if(capp ==true || coldBrew == true)
-                            {
-                              capp= false;
-                              coldBrew= false;
-                              expresso= true;
+                        containerColor:
+                            expresso == true ? Color(0xFF846046) : Colors.white,
+                        textColor:
+                            expresso == true ? Colors.white : Color(0xFF846046),
+                        ImageColor:
+                            expresso == true ? Colors.white : Color(0xFF846046),
+                        ontap: () {
+                          setState(() {
+                            if (capp == true || coldBrew == true) {
+                              capp = false;
+                              coldBrew = false;
+                              expresso = true;
                             }
                           });
                         },
@@ -282,25 +296,47 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CoffeeCard(
-                        cardimagename: 'Cup',
-                        orderdescription: 'with Chocolate',
-                        rate: 4.8,
-                        price: 35,
+                  Center(
+                    child: SizedBox(
+                      height: 190,
+                      width: 350,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        padding: EdgeInsets.only(bottom: 2),
+                        children: [
+                          CoffeeCard(
+                            cardimagename: 'Cappuccino2',
+                            orderdescription: 'With low fat milk',
+                            rate: 4.54,
+                            price: 23,
+                          ),
+                          CoffeeCard(
+                            cardimagename: 'Cup',
+                            orderdescription: 'With chocolate',
+                            rate: 4.54,
+                            price: 23,
+                          ),
+                          CoffeeCard(
+                            cardimagename: 'Cup',
+                            orderdescription: 'With low fat milk',
+                            rate: 4.54,
+                            price: 23,
+                          ),
+                          CoffeeCard(
+                            cardimagename: 'Cup',
+                            orderdescription: 'With low fat milk',
+                            rate: 4.54,
+                            price: 23,
+                          ),
+                          CoffeeCard(
+                            cardimagename: 'Cup',
+                            orderdescription: 'With low fat milk',
+                            rate: 4.54,
+                            price: 23,
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      CoffeeCard(
-                        cardimagename: 'Cappuccino2',
-                        orderdescription: 'With low fat milk',
-                        rate: 4.54,
-                        price: 23,
-                      ),
-                    ],
+                    ),
                   ),
                   SizedBox(
                     height: 35,
@@ -323,7 +359,17 @@ class _HomeState extends State<Home> {
                     height: 100,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Color(0xFF846046)),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            // soften the shadow
+                            spreadRadius: 0.1, //extend the shadow
+                            offset: Offset(
+                              0.1, // Move to right 5  horizontally
+                              0.1, // Move to bottom 5 Vertically
+                            ),
+                          ),
+                        ]),
                     child: Row(
                       children: [
                         Padding(
@@ -340,15 +386,17 @@ class _HomeState extends State<Home> {
                               height: 16,
                               width: 47,
                               decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: Color(0xFF846046),
                                   borderRadius: BorderRadius.circular(22)),
                               child: Center(
                                 child: Text(
                                   "Limited",
                                   style: TextStyle(
-                                      fontFamily: 'lato',
-                                      color: Color(0xFF846046),
-                                      fontWeight: FontWeight.bold),
+                                    fontFamily: 'lato',
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
@@ -358,7 +406,7 @@ class _HomeState extends State<Home> {
                             Text(
                               "Buy 1 get 1 free\nif you pay with\nstc pay",
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Lato-Bold',
                                   fontSize: 16),
@@ -448,16 +496,17 @@ class CoffeeCard extends StatelessWidget {
     return Container(
       height: 190,
       width: 143,
+      margin: EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              blurRadius: 0.8, // soften the shadow
-              spreadRadius: 0.9, //extend the shadow
+              // soften the shadow
+              spreadRadius: 0.1, //extend the shadow
               offset: Offset(
-                0.8, // Move to right 5  horizontally
-                0.8, // Move to bottom 5 Vertically
+                0.1, // Move to right 5  horizontally
+                0.1, // Move to bottom 5 Vertically
               ),
             ),
           ]),
@@ -573,6 +622,9 @@ class CoffeeCard extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          SizedBox(
+            width: 15,
           ),
         ],
       ),
