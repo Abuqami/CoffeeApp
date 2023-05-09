@@ -1,16 +1,18 @@
-# coffee
+Coffee Ordering App
 
-A new Flutter project.
+This is a Flutter app for ordering coffee from your favorite coffee shop. The app includes three interfaces: a landing page, a page with a search bar and different coffee options, and a page for each coffee with order information.
+Installation
 
-## Getting Started
+To install the app, follow these steps:
 
-This project is a starting point for a Flutter application.
+    Clone the repository to your local machine
+    Open the project in your preferred code editor
+    Run the app using the Flutter SDK and an emulator or physical device
 
-A few resources to get you started if this is your first Flutter project:
+Screenshots
+![image](https://github.com/Abuqami/CoffeeApp/assets/107142239/7133cb41-9635-4b2c-a942-afb05498cd45)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Here are some screenshots of the app:
+
+Contributing
